@@ -29,3 +29,29 @@ start-or-focus [ --help | --version | -H | -h | -? | -V | -v ]
 - `<command>`
   - The command used to start the application. If not given, assumed to be same
     as `<process>`.
+
+### Examples
+
+- ```
+  start-or-focus "ghostwriter"
+  ```
+- ```
+  start-or-focus "Geany" "geany"
+  ```
+- ```
+  start-or-focus \
+    "Mozilla Firefox" \
+    "/usr/lib/firefox/firefox"
+  ```
+- ```
+  start-or-focus \
+    "Firefox Developer Edition" \
+    "/opt/firefox-developer-edition/firefox"
+  ```
+- ```
+  start-or-focus \
+    "Chromium" \
+    "chromium-browse" \
+    "chromium-browser --incognito"
+  ```
+  (Starts Chromium in incognito mode.)
