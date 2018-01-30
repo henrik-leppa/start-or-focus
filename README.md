@@ -1,5 +1,5 @@
-start-or-focus
-==============
+Start or Focus 1.0.0
+====================
 
 Starts an application, or if it is already running, gives it focus.
 
