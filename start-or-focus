@@ -1,0 +1,83 @@
+#! /bin/sh
+
+case $1 in
+  (--version | -V | -v) exec printf "\
+Start or Focus v2017-11-17
+
+Copyright © 2017 Henrik Franciscus Leppä
+
+" ;;
+  (--help | -H | -h | -?) exec printf "\
+Starts an application, or if it is already running, gives it focus.
+
+Usage: start-or-focus <name> [ <process> [ <command> ] ]
+   or: start-or-focus [ --help | --version | -H | -h | -? | -V | -v ]
+
+Options:
+  --help, -H, -h, -?
+      Print this help message.
+  --version, -V, -v
+      Print version and copyright information.
+  <name>
+      Name of the application as it appears in the window (case insensitive).
+  <process>
+      Name of the application's process (case sensitive). If not given, assumed
+      to be same as <name>.
+  <command>
+      The command used to start the application. If not given, assumed to be
+      same as <process>.
+
+Note: May accidentally focus the wrong window if <name> is found in its title.
+
+" ;;
+esac
+
+
+argument_number_error="\
+Incorrect number of arguments, should be 1, 2 or 3, instead was: $#
+"
+
+# [See sysexits.h](https://www.freebsd.org/cgi/man.cgi?query=sysexits&sektion=3)
+ex_usage=64
+ex_oserr=71
+
+
+for i do
+  case $i in
+    (-*)
+      printf "Invalid option: '$i'\n\n" >& 2
+      printf "Use '--help' option to see all valid options.\n\n" >& 2
+      exit $ex_usage
+      ;;
+  esac
+done
+
+if [ ! "$(command -v pidof)" ]; then
+  printf "Command 'pidof' was not found. Install it and try again.\n" >& 2
+  exit $ex_oserr
+fi
+
+
+if [ ! "$(command -v wmctrl)" ]; then
+  printf "Command 'wmctrl' was not found. Install it and try again.\n" >& 2
+  exit $ex_oserr
+fi
+
+
+application_name=$1
+
+case $# in
+  (1) application_process=$1 ; application_command=$1 ;;
+  (2) application_process=$2 ; application_command=$2 ;;
+  (3) application_process=$2 ; application_command=$3 ;;
+  (*) printf "$argument_number_error" >& 2 ; exit $ex_usage ;;
+esac
+
+
+if [ "$(pidof $application_process)" ]; then
+  printf "$application_name is already running; giving it focus.\n"
+  wmctrl -a "$application_name"
+else
+  printf "$application_name is not running; starting it.\n"
+  $application_command &
+fi
