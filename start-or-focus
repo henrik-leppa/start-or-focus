@@ -11,7 +11,7 @@ MIT License <https://opensource.org/licenses/MIT>. There is NO WARRANTY, to the
 extent permitted by law.
 
 " ;;
-  (--help | -H | -h | -?) exec printf "\
+  (--help | -H | -h | -\?) exec printf "\
 Starts an application, or if it is already running, gives it focus.
 
 Usage: start-or-focus <name> [ <process> [ <command> ] ]
