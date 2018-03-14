@@ -4,6 +4,10 @@ Start or Focus 1.0.1
 Starts an application, or if it is already running, gives it focus.
 
 
+[Changelog]
+-----------
+
+
 Usage
 -----
 
@@ -55,3 +59,6 @@ start-or-focus [ --help | --version | -H | -h | -? | -V | -v ]
     "chromium-browser --incognito"
   ```
   (Starts Chromium in incognito mode.)
+
+
+[Changelog]: ./CHANGELOG.md
