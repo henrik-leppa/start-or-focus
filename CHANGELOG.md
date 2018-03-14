@@ -13,6 +13,7 @@ Versioning].
 ### Added
 
 - Changelog based on [Keep a Changelog].
+- `set -e`, so that the script fails fast on errors.
 
 
 [1.0.1] – 2018-03-14
