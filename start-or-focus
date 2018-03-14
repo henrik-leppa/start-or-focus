@@ -4,7 +4,7 @@ set -e
 
 case $1 in
   (--version | -V | -v) exec printf "%s" "\
-Start or Focus 1.0.1
+Start or Focus 1.1.0
 
 Copyright © 2017--2018 Henrik Franciscus Leppä
 
@@ -80,7 +80,7 @@ case $# in
 esac
 
 
-if [ "$(pidof $application_process)" ]; then
+if [ "$(pidof "$application_process")" ]; then
   printf "%s\n" "$application_name is already running; giving it focus."
   wmctrl -a "$application_name"
 else
