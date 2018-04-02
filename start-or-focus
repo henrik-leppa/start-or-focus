@@ -17,7 +17,7 @@ extent permitted by law.
 Starts an application, or if it is already running, gives it focus.
 
 Usage: start-or-focus <name> [ <process> [ <command> ] ]
-   or: start-or-focus [ --help | --version | -H | -h | -? | -V | -v ]
+   or: start-or-focus ( --help | --version | -H | -h | -? | -V | -v )
 
 Options:
   --help, -H, -h, -?

@@ -18,6 +18,7 @@ Versioning].
 
 - Line feed escapes from `\n` to `\\n`.
 - License copyright year range.
+- Help and version flag list
 
 
 [1.1.0] – 2018-03-14

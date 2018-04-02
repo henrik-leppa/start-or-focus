@@ -20,7 +20,7 @@ start-or-focus <name> [ <process> [ <command> ] ]
 ```
 or:
 ```
-start-or-focus [ --help | --version | -H | -h | -? | -V | -v ]
+start-or-focus ( --help | --version | -H | -h | -? | -V | -v )
 ```
 
 ### Options
