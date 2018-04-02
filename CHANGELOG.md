@@ -13,6 +13,7 @@ Versioning].
 ### Fixed
 
 - Line feed escapes from `\n` to `\\n`.
+- License copyright year range.
 
 
 [1.1.0] – 2018-03-14
