@@ -4,6 +4,10 @@ Start or Focus 1.1.0
 Starts an application, or if it is already running, gives it focus.
 
 
+[MIT License]
+-------------
+
+
 [Changelog]
 -----------
 
@@ -61,4 +65,5 @@ start-or-focus [ --help | --version | -H | -h | -? | -V | -v ]
   (Starts Chromium in incognito mode.)
 
 
+[MIT License]: ./LICENSE.md
 [Changelog]: ./CHANGELOG.md

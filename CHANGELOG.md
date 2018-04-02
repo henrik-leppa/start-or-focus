@@ -10,6 +10,10 @@ Versioning].
 [Unreleased]
 ------------
 
+### Added
+
+- License link to README
+
 ### Fixed
 
 - Line feed escapes from `\n` to `\\n`.
