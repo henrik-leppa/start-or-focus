@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog] and this project adheres to [Semantic
 Versioning].
 
 
+[Unreleased]
+------------
+
+### Fixed
+
+- Line feed escapes from `\n` to `\\n`.
+
+
 [1.1.0] – 2018-03-14
 --------------------
 

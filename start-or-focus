@@ -51,21 +51,22 @@ ex_oserr=71
 for i do
   case $i in
     (-*)
-      printf "%s\n\n" "Invalid option: '$i'" >& 2
-      printf "%s\n\n" "Use '--help' option to see all valid options." >& 2
+      printf "%s\\n\\n" "Invalid option: '$i'" >& 2
+      printf "%s\\n\\n" "Use '--help' option to see all valid options." >& 2
       exit $ex_usage
       ;;
   esac
 done
 
 if [ ! "$(command -v pidof)" ]; then
-  printf "%s\n" "Command 'pidof' was not found. Install it and try again." >& 2
+  printf "%s\\n" "Command 'pidof' was not found. Install it and try again." >& 2
   exit $ex_oserr
 fi
 
 
 if [ ! "$(command -v wmctrl)" ]; then
-  printf "%s\n" "Command 'wmctrl' was not found. Install it and try again." >& 2
+  printf \
+    "%s\\n" "Command 'wmctrl' was not found. Install it and try again." >& 2
   exit $ex_oserr
 fi
 
@@ -81,9 +82,9 @@ esac
 
 
 if [ "$(pidof "$application_process")" ]; then
-  printf "%s\n" "$application_name is already running; giving it focus."
+  printf "%s\\n" "$application_name is already running; giving it focus."
   wmctrl -a "$application_name"
 else
-  printf "%s\n" "$application_name is not running; starting it."
+  printf "%s\\n" "$application_name is not running; starting it."
   $application_command &
 fi
