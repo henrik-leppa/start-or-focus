@@ -8,7 +8,7 @@ ex_oserr=71
 
 case $1 in
   (--version | -V | -v) exec printf "%s\\n" "\
-Start or Focus 2.0.0
+Start or Focus 2.0.1
 
 Copyright © 2017--2018 Henrik Franciscus Leppä
 

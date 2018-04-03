@@ -1,4 +1,4 @@
-Start or Focus 2.0.0
+Start or Focus 2.0.1
 ====================
 
 Starts an application, or if it is already running, gives it focus.
@@ -10,6 +10,17 @@ Starts an application, or if it is already running, gives it focus.
 
 [Changelog]
 -----------
+
+
+Prerequisites
+-------------
+
+- POSIX-compliant shell (`/bin/sh`)
+- `pidof` command
+- `wmctrl` command
+
+**Note:** The script will check for the required commands itself, so you do not
+have to.
 
 
 Usage

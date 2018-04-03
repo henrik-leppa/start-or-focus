@@ -11,6 +11,14 @@ Versioning].
 ------------
 
 
+[2.0.1] – 2018-04-03
+--------------------
+
+### Fixed
+
+- Prerequisites not being listed.
+
+
 [2.0.0] – 2018-04-02
 --------------------
 
@@ -58,7 +66,8 @@ Versioning].
 [Keep a Changelog]: http://keepachangelog.com/en/1.0.0/
 [Semantic Versioning]: http://semver.org/spec/v2.0.0.html
 [Unreleased]:
-  https://github.com/henrik-leppa/start-or-focus/compare/2.0.0...HEAD
+  https://github.com/henrik-leppa/start-or-focus/compare/2.0.1...HEAD
+[2.0.1]: https://github.com/henrik-leppa/start-or-focus/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/henrik-leppa/start-or-focus/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/henrik-leppa/start-or-focus/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/henrik-leppa/start-or-focus/compare/1.0.0...1.0.1
