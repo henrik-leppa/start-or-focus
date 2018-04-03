@@ -7,7 +7,7 @@ ex_usage=64
 ex_oserr=71
 
 case $1 in
-  (--version | -V | -v) exec printf "%s" "\
+  (--version | -V | -v) exec printf "%s\\n" "\
 Start or Focus 2.0.0
 
 Copyright © 2017--2018 Henrik Franciscus Leppä
@@ -15,9 +15,8 @@ Copyright © 2017--2018 Henrik Franciscus Leppä
 This is free software. You may redistribute copies of it under the terms of the
 MIT License <https://opensource.org/licenses/MIT>. There is NO WARRANTY, to the
 extent permitted by law.
-
 " ;;
-  (--help | -H | -h | -\?) exec printf "%s" "\
+  (--help | -H | -h | -\?) exec printf "%s\\n" "\
 Starts an application, or if it is already running, gives it focus.
 
 Usage: start-or-focus -- <name> [ <process> [ <command> ] ]
@@ -38,7 +37,6 @@ Options:
       same as <process>.
 
 Note: May accidentally focus the wrong window if <name> is found in its title.
-
 " ;;
   (--)
     shift
