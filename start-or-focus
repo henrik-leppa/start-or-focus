@@ -3,7 +3,7 @@
 set -e
 
 version_message="\
-Start or Focus 2.0.1
+Start or Focus 2.1.0
 
 Copyright © 2017--2018 Henrik Franciscus Leppä
 
@@ -44,8 +44,8 @@ ex_oserr=71
 
 
 case $1 in
-  (--version | -V | -v) exec printf "%s\\n" "$version_message" ;;
-  (--help | -H | -h | -\?) exec printf "%s\\n" "$help_message" ;;
+  (--version | -V | -v) printf "%s\\n" "$version_message" ; exit ;;
+  (--help | -H | -h | -\?) printf "%s\\n" "$help_message" ; exit ;;
   (--)
     shift
   ;;

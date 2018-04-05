@@ -1,4 +1,4 @@
-Start or Focus 2.0.1
+Start or Focus 2.1.0
 ====================
 
 Starts an application, or if it is already running, gives it focus.
