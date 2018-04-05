@@ -10,6 +10,10 @@ Versioning].
 [Unreleased]
 ------------
 
+### Changed
+
+- Help message format to be more readable.
+
 ### Added
 
 - Automated tests using shUnit2 and ShellCheck.

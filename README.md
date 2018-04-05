@@ -31,15 +31,19 @@ start-or-focus -- <name> [ <process> [ <command> ] ]
 ```
 or:
 ```
-start-or-focus ( --help | --version | -H | -h | -? | -V | -v )
+start-or-focus (--version | -V | -v)
+```
+or:
+```
+start-or-focus (--help | -H | -h | -?)
 ```
 
 ### Options
 
-- `--help, -H, -h, -?`
-  - Print the usage message.
 - `--version, -V, -v`
   - Print version and copyright information.
+- `--help, -H, -h, -?`
+  - Print the usage message.
 - `<name>`
   - Name of the application as it appears in the window (case insensitive).
 - `<process>`
