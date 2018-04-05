@@ -2,12 +2,7 @@
 
 set -e
 
-# [See sysexits.h](https://www.freebsd.org/cgi/man.cgi?query=sysexits&sektion=3)
-ex_usage=64
-ex_oserr=71
-
-case $1 in
-  (--version | -V | -v) exec printf "%s\\n" "\
+version_message="\
 Start or Focus 2.0.1
 
 Copyright © 2017--2018 Henrik Franciscus Leppä
@@ -15,8 +10,8 @@ Copyright © 2017--2018 Henrik Franciscus Leppä
 This is free software. You may redistribute copies of it under the terms of the
 MIT License <https://opensource.org/licenses/MIT>. There is NO WARRANTY, to the
 extent permitted by law.
-" ;;
-  (--help | -H | -h | -\?) exec printf "%s\\n" "\
+"
+help_message="\
 Starts an application, or if it is already running, gives it focus.
 
 Usage: start-or-focus -- <name> [ <process> [ <command> ] ]
@@ -38,7 +33,19 @@ Options:
       same as <process>.
 
 Note: May accidentally focus the wrong window if <name> is found in its title.
-" ;;
+"
+argument_number_error="\
+Incorrect number of positional arguments, should be 1, 2 or 3, instead was: $#
+"
+
+# [See sysexits.h](https://www.freebsd.org/cgi/man.cgi?query=sysexits&sektion=3)
+ex_usage=64
+ex_oserr=71
+
+
+case $1 in
+  (--version | -V | -v) exec printf "%s\\n" "$version_message" ;;
+  (--help | -H | -h | -\?) exec printf "%s\\n" "$help_message" ;;
   (--)
     shift
   ;;
@@ -62,10 +69,6 @@ if [ ! "$(command -v wmctrl)" ]; then
   exit $ex_oserr
 fi
 
-
-argument_number_error="\
-Incorrect number of positional arguments, should be 1, 2 or 3, instead was: $#
-"
 
 if [ $# -lt 1 ] || [ 3 -lt $# ]; then
   printf "%s" "$argument_number_error" >& 2
