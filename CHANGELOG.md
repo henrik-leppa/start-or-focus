@@ -10,6 +10,10 @@ Versioning].
 [Unreleased]
 ------------
 
+### Added
+
+- Automated tests using shUnit2 and ShellCheck.
+
 
 [2.0.1] – 2018-04-03
 --------------------
@@ -24,14 +28,14 @@ Versioning].
 
 ### Added
 
-- License link to README
-- Double dash (`--`) before positional arguments
+- License link to README.
+- Double dash (`--`) before positional arguments.
 
 ### Fixed
 
 - Line feed escapes from `\n` to `\\n`.
 - License copyright year range.
-- Help and version flag list
+- Help and version flag list.
 
 
 [1.1.0] – 2018-03-14

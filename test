@@ -1,0 +1,100 @@
+#! /bin/sh
+
+version_message="\
+Start or Focus 2.0.1 Test Script
+
+Copyright © 2018 Henrik Franciscus Leppä
+
+This is free software. You may redistribute copies of it under the terms of the
+MIT License <https://opensource.org/licenses/MIT>. There is NO WARRANTY, to the
+extent permitted by law.
+"
+help_message="\
+Runs automated tests for Start or Focus using shUnit2 and ShellCheck.
+
+Usage: ./test
+   or: ./test (--version | -V | -v)
+   or: ./test (--help | -H | -h | -?)
+
+Options:
+  --help, -H, -h, -?
+      Print this help message.
+  --version, -V, -v
+      Print version and copyright information.
+"
+
+# [See sysexits.h](https://www.freebsd.org/cgi/man.cgi?query=sysexits&sektion=3)
+ex_usage=64
+
+
+if [ ${1+something} ]; then
+  case $1 in
+    (--version | -V | -v) printf "%s\\n" "$version_message" ; exit ;;
+    (--help | -H | -h | -\?) printf "%s\\n" "$help_message" ; exit ;;
+    (*)
+      printf "%s\\n\\n" "Invalid argument: \`$1\`" >& 2
+      printf "%s\\n\\n" "Use \`--help\` option to see all valid arguments." >& 2
+      exit $ex_usage
+    ;;
+  esac
+fi
+
+
+assert_string_begins_with() {
+  case $2 in
+    ("$1"*) true ;;
+    (*) fail "String should start with: <$1>, instead was: <$2>." ;;
+  esac
+}
+
+validate_help_option() {
+  output=$(./start-or-focus "$1")
+  assertEquals "Exit code --" 0 $?
+  assert_string_begins_with "Starts an application," "$output"
+}
+validate_version_option() {
+  output=$(./start-or-focus "$1")
+  assertEquals "Exit code --" 0 $?
+  assert_string_begins_with "Start or Focus " "$output"
+}
+
+
+testCorrectShellCheckVersion() {
+  output=$(shellcheck --version | grep '^version')
+  assertEquals "Shellcheck version line --" "version: 0.4.7" "$output"
+}
+testShellCheck() {
+  shellcheck ./start-or-focus
+  assertEquals "Shellcheck exit code --" 0 $?
+}
+testTestScriptShellCheck() {
+  shellcheck ./test
+  assertEquals "Shellcheck exit code --" 0 $?
+}
+testOptionHelp() {
+  validate_help_option --help
+}
+testOptionUppercaseH() {
+  validate_help_option -H
+}
+testOptionLowercaseH() {
+  validate_help_option -h
+}
+testOptionQuestionMark() {
+  validate_help_option -?
+}
+testOptionVersion() {
+  validate_version_option --version
+}
+testOptionUppercaseV() {
+  validate_version_option -V
+}
+testOptionLowercaseV() {
+  validate_version_option -v
+}
+
+
+# Allow `.`, because shUnit2 requires it.
+#   shellcheck disable=SC1091
+# Load shUnit2.
+. ./shunit2/shunit2

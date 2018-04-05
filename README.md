@@ -76,5 +76,18 @@ start-or-focus ( --help | --version | -H | -h | -? | -V | -v )
   (Starts Chromium in incognito mode.)
 
 
+Testing
+-------
+
+Automated tests are done using [shUnit2] and [ShellCheck].
+
+### Steps
+
+1. Install ShellCheck 0.4.7.
+2. Run `./test`.
+
+
 [MIT License]: ./LICENSE.md
 [Changelog]: ./CHANGELOG.md
+[shUnit2]: https://github.com/kward/shunit2/
+[ShellCheck]: https://github.com/koalaman/shellcheck
